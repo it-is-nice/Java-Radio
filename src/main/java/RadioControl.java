@@ -6,20 +6,20 @@ public class RadioControl {
     private int maxVolume = 100;
     private int minVolume = 0;
 
-    public int getMaxChannel() {
-        return maxChannel;
-    }
-
-
-    public int getCurrentChannel() {
-        return currentChannel;
-    }
-
     public RadioControl() {
     }
 
     public RadioControl(int maxChannel) {
         this.maxChannel = maxChannel;
+    }
+
+
+    public int getMaxChannel() {
+        return maxChannel;
+    }
+
+    public int getCurrentChannel() {
+        return currentChannel;
     }
 
     public void setCurrentChannel(int currentChannel) {
@@ -46,30 +46,36 @@ public class RadioControl {
         this.currentVolume = currentVolume;
     }
 
-    public void nextChannel(){
+    public void nextChannel() {
         if (currentChannel < maxChannel) {
             currentChannel++;
+        } else {
+            currentChannel = minChannel;
         }
-        else {currentChannel = minChannel;}
-    }
-    public void previousChannel(){
-        if (currentChannel > minChannel){
-            currentChannel--;
-        }
-        else {currentChannel = maxChannel;}
     }
 
-    public void upVolume(){
-        if (currentVolume < maxVolume){
-            currentVolume++;
+    public void previousChannel() {
+        if (currentChannel > minChannel) {
+            currentChannel--;
+        } else {
+            currentChannel = maxChannel;
         }
-        else {currentVolume = maxVolume;}
     }
-    public void downVolume(){
-        if (currentVolume > minVolume){
-            currentVolume--;
+
+    public void upVolume() {
+        if (currentVolume < maxVolume) {
+            currentVolume++;
+        } else {
+            currentVolume = maxVolume;
         }
-        else {currentVolume = minVolume;}
+    }
+
+    public void downVolume() {
+        if (currentVolume > minVolume) {
+            currentVolume--;
+        } else {
+            currentVolume = minVolume;
+        }
     }
 
 }
