@@ -1,3 +1,13 @@
+package ru.netology;
+
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+
+
 public class RadioControl {
     private int currentChannel;
     private int maxChannel = 10;
@@ -6,17 +16,15 @@ public class RadioControl {
     private int maxVolume = 100;
     private int minVolume = 0;
 
-    public int getMaxChannel() {
+   /* public int getMaxChannel() {
         return maxChannel;
     }
 
 
     public int getCurrentChannel() {
         return currentChannel;
-    }
+    }*/
 
-    public RadioControl() {
-    }
 
     public RadioControl(int maxChannel) {
         this.maxChannel = maxChannel;
@@ -32,9 +40,9 @@ public class RadioControl {
         this.currentChannel = currentChannel;
     }
 
-    public int getCurrentVolume() {
+   /* public int getCurrentVolume() {
         return currentVolume;
-    }
+    }*/
 
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < minVolume) {
