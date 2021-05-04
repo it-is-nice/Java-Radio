@@ -1,13 +1,23 @@
+package ru.netology;
+
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+
+
 public class RadioControl {
     private int currentChannel;
-    private int maxChannel = 9;
+    private int maxChannel = 10;
     private int minChannel = 0;
     private int currentVolume;
-    private int maxVolume = 10;
+    private int maxVolume = 100;
     private int minVolume = 0;
 
-    public int getCurrentChannel() {
-        return currentChannel;
+    public RadioControl(int maxChannel) {
+        this.maxChannel = maxChannel;
     }
 
     public void setCurrentChannel(int currentChannel) {
@@ -20,10 +30,6 @@ public class RadioControl {
         this.currentChannel = currentChannel;
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < minVolume) {
             currentVolume = minVolume;
@@ -34,30 +40,36 @@ public class RadioControl {
         this.currentVolume = currentVolume;
     }
 
-    public void nextChannel(){
+    public void nextChannel() {
         if (currentChannel < maxChannel) {
             currentChannel++;
+        } else {
+            currentChannel = minChannel;
         }
-        else currentChannel = minChannel;
-    }
-    public void previousChannel(){
-        if (currentChannel > minChannel){
-            currentChannel--;
-        }
-        else currentChannel = maxChannel;
     }
 
-    public void upVolume(){
-        if (currentVolume < maxVolume){
-            currentVolume++;
+    public void previousChannel() {
+        if (currentChannel > minChannel) {
+            currentChannel--;
+        } else {
+            currentChannel = maxChannel;
         }
-        else currentVolume = maxVolume;
     }
-    public void downVolume(){
-        if (currentVolume > minVolume){
-            currentVolume--;
+
+    public void upVolume() {
+        if (currentVolume < maxVolume) {
+            currentVolume++;
+        } else {
+            currentVolume = maxVolume;
         }
-        else currentVolume = minVolume;
+    }
+
+    public void downVolume() {
+        if (currentVolume > minVolume) {
+            currentVolume--;
+        } else {
+            currentVolume = minVolume;
+        }
     }
 
 }
