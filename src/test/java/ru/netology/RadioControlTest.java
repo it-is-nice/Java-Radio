@@ -2,8 +2,6 @@ package ru.netology;
 
 import org.junit.jupiter.api.Assertions;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class RadioControlTest {
 
     @org.junit.jupiter.api.Test
